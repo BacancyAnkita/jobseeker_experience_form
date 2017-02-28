@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+<br><br>  <%= f.label("Current Designation:") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <%= f.text_field :designation %><br><br><br>
+  <%= f.label("Current Company:") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.text_field :company %><br><br><br>
+  <%= f.label("Experience:") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Years:&nbsp;&nbsp;<%= f.select :working_since,0..30 %>&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.label("Months:") %>&nbsp;&nbsp;
+  <%= f.select :months,0..11 %> <br><br><br>
+  <%= f.label("Current Location:") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.collection_select(:location, Location.all,:name,:name) %><br><br><br>
+  <%= f.label("Duration of notice period:") %>&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.select :notice ,options_for_select([["15 days or less","15 days or less"],["1 month","1 month"],["2 months","2 months"],["3 months","3 months"],["More than 3 months","More than 3 months"]]) %><br><br><br>
+  <%= f.submit "confirm" %>
+<% end %>
